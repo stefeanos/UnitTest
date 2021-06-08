@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.15.0.css" />
+<script src="qunit.js"></script>
+
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.15.0.js"></script>
+
+  <script>
+    var script = document.createElement('script')
+    script.type = 'text/javascript'
+    document.getElementsByTagName('head')[0].appendChild(script)
+    // function sum(a, b) {
+    //   return a + b
+    // }
+    // let sumArrow = (a, b) => {
+    //   return a + b
+    // }
+    // Each QUnit.test has its own test context object, accessible via its this variable. Properties on the module options object are copied over to the test context object at the start of each test. Such properties can also be changed from the hook callbacks. See § Example: Test context.
+    ////////////////////////////////////////////////////////////////
+
+    const { test } = QUnit
+    QUnit.module('Group A Model')
+    test('success', (assert) => {
+      var expectedHtml = `
+<div class="form_container">
+<form action="success.html">
+`
+      assert.true(true, 'this is fine')
+    })
+
+    test('element', (assert) => {
+      ;(function (element) {
+        addEventListener('click', function () {
+          if (element.innerHTML === selectColor.innerHTML) {
+            checkbox.checked = true
+            alert('Du er menneske!')
+            submitBtn.disabled = false
+            submitBtn.classList.remove('btn-light')
+
+            submitBtn.classList.add('btn-success')
+            console.log(submitBtn)
+          } else {
+            alert('vennligst bekreft at du er menneske!')
+            location.reload(true)
+          }
+        })
+      })
+
+      assert.true(true, 'this is also fine')
+    })
+    test('checkbox', (assert) => {
+      var expectedHtml = `
+<input type="checkbox" id="checkbox" />
+<label for="checkbox">checked</label>`
+      assert.true(true, 'this is fine')
+    })
+    test('submit', (assert) => {
+      var expectedHtml = `
+<button class="btn btn-light"
+type="submit">button</button>`
+      assert.true(true, 'this is also fine')
+    })
+    ////////////////////////////Group B///////////////////////
+    QUnit.module('Group B Model')
+    test('element', (assert) => {
+      var expectedHtml = `
+    <main class="container">
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    </main>`
+      assert.true(true, 'this is fine')
+    })
+    test('submit', (assert) => {
+      var expectedHtml = `
+<button class="btn btn-light"
+type="submit">button</button>`
+      assert.true(true, 'this is also fine')
+    })
+    test('success', (assert) => {
+      var expectedHtml = `
+<div class="form_container">
+<form action="success.html">
+`
+      assert.true(true, 'this is fine')
+    })
+
+    test('checkbox', (assert) => {
+      var expectedHtml = `
+<input type="checkbox" id="checkbox" />
+<label for="checkbox">checked</label>`
+      assert.true(true, 'this is also fine')
+    })
+    //////////////////////////////////Group C/////////////////////////////////
+    QUnit.module('Group c')
+    QUnit.test('success', function (assert) {
+      var expectedHtml = `
+<div class="form_container">
+<form action="success.html">
+`
+      var actualHtml = successHtml(actualHtml)
+      assert.equal(actualHtml, expectedHtml)
+    })
+
+    QUnit.test('element', function (assert) {
+      var expectedHtml = `
+    <main class="container">
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    </main>`
+      var actualHtml = elementHtml(actualHtml)
+      assert.equal(actualHtml, expectedHtml)
+    })
+
+    QUnit.test('submit', function (assert) {
+      var expectedHtml = `
+<button class="btn btn-light"
+type="submit">button</button>`
+      var actualHtml = submitHtml(actualHtml)
+      assert.equal(actualHtml, expectedHtml)
+    })
+    QUnit.test('checkbox', function (assert) {
+      var expectedHtml = `
+<input type="checkbox" id="checkbox" />
+<label for="checkbox">checked</label>`
+      var actualHtml = checkboxHtml(actualHtml)
+      assert.equal(actualHtml, expectedHtml)
+    })
+
+    ///////////////////////////////////////////////////////////////////
+
+    QUnit.module('module A', {
+      before: function () {
+        // prepare something once for all tests
+      },
+      beforeEach: function () {
+        // prepare something before each test
+      },
+      afterEach: function () {
+        // clean up after each test
+      },
+      after: function () {
+        // clean up once after all tests are done
+      },
+    })
+    QUnit.module('module B', {
+      before: function () {
+        // prepare something once for all tests
+      },
+      beforeEach: function () {
+        // prepare something before each test
+      },
+      afterEach: function () {
+        // clean up after each test
+      },
+      after: function () {
+        // clean up once after all tests are done
+      },
+    })
+    QUnit.module('function', {
+      before: function () {
+        // prepare something once for all tests
+      },
+      beforeEach: function () {
+        // prepare something before each test
+      },
+      afterEach: function () {
+        // clean up after each test
+      },
+      after: function () {
+        // clean up once after all tests are done
+      },
+    }),
+      ///////////////////////////////////////////////////////////////////////
+      QUnit.module('Function ')
+    test('getRandomColor', (assert) => {
+      function getRandomColor() {
+        const letter = '0123456789ABCDEF'
+        let color = '#'
+        for (let i = 0; i < 6; i++) {
+          color += letter[Math.floor(Math.random(1) * 16)]
+        }
+        return color
+      }
+      assert.true(true, 'this is fine')
+    })
+    /////////////////////////////////////////////////
+    QUnit.module(' Function ')
+    test('elements.forEach', (assert) => {
+      var expected = `
+  const color = getRandomColor();
+  element.style.backgroundColor = color;
+  element.innerHTML = color;
+  selectColor.innerHTML = color;
+`
+      assert.true(true, 'this is also fine')
+    })
+    //////////////////////////////////////////////////////
+    test('quiz()', (assert) => {
+      function quiz() {
+        let submitBtn
+        submitBtn = submit()
+        quizPlay()
+        checkbox.disabled = true
+        return submitBtn
+      }
+      assert.true(true, 'this is fine')
+    })
+
+    ////////////////////////////////////////////
+    test('elements.forEach', (assert) => {
+      ;(function (element) {
+        addEventListener('click', function () {
+          if (element.innerHTML === selectColor.innerHTML) {
+            checkbox.checked = true
+            alert('Du er menneske!')
+            submitBtn.disabled = false
+            submitBtn.classList.remove('btn-light')
+
+            submitBtn.classList.add('btn-success')
+            console.log(submitBtn)
+          } else {
+            alert('vennligst bekreft at du er menneske!')
+            location.reload(true)
+          }
+        })
+      })
+
+      assert.true(true, 'this is also fine')
+    })
+  </script>
+</body>
